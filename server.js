@@ -4,7 +4,9 @@ var app = express();
 /*
     Here we are configuring our SMTP Server details.
     STMP is mail server which is responsible for sending and recieving email.
+    
 */
+const port = process.env.PORT || 3000;
 var smtpTransport = nodemailer.createTransport({
     service: "gmail",
     host: "smtp.gmail.com",
@@ -40,6 +42,6 @@ app.get('/send', function (req, res) {
 
 /*--------------------Routing Over----------------------------*/
 
-app.listen(3000, function () {
+app.listen(port, function () {
     console.log("Express Started on Port 3000");
 });
